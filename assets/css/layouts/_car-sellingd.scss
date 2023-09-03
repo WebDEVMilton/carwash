@@ -1,0 +1,268 @@
+.car-selling-area{
+    text-transform: capitalize;
+    .brand{
+        color: #fff;
+        background-color: #333;
+        font-weight: 500;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        @include small{
+            padding: 0 256px;
+        }
+        @include large{
+            padding: 0;
+        }
+        @include x-large{
+            padding: 0;
+        }
+        @include xx-large{
+            padding: 0;
+        }
+
+
+    }
+
+    h4{
+        color: #fff;
+        background-color: #333;
+        font-weight: 500;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        margin-bottom: 10px;
+        @include x-small{
+            font-size: 14px;
+            padding-left: 9px;
+        }
+        @include small{
+            margin-top: 10px;
+        }
+
+    }
+    ul{
+        li{
+            
+            &:hover{
+                border-bottom: 1px solid  rgb(31, 163, 224);
+            }
+        }
+    }
+
+    .car-selling-d{
+        @include large{
+            margin-bottom: 15px;
+        }
+    }
+
+    .car-selling-main{
+        flex-wrap: wrap;
+        // @include x-small{
+        //     flex-direction: column;
+        //     justify-content: center;
+        // }
+
+    .car-selling-part1{
+        position: relative;
+        @include x-small{
+            flex-basis: 100%;
+            
+        }
+        @include small{
+            flex-basis: 100%;
+        }
+        @include medium{
+            flex-basis: 100%;
+        }
+        @include large{
+            flex-basis: 35%;
+        }
+        img{
+            width: 70%;
+            @include x-small{
+                width: 100%;
+            }
+            @include small{
+                width: 100%;
+            }
+            @include large{
+                height: 100%;
+            }
+            @include x-large{
+                height: 93%;
+            }
+
+        }
+
+        h5{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #Ff3636;
+            color: #fff;
+            width: 70%;
+            text-align: center;
+            font-size: 16px;
+            @include x-small{
+                width: 100%;
+            }
+            @include small{
+                width: 100%;
+            }
+        }
+    }
+    .car-selling-part2{
+        margin-left: -122px;
+        width: 71%;
+        @include x-small{
+            flex-basis: 100%;
+            margin-left: -1px;
+            
+        }
+        @include small{
+            width: 100%;
+            margin-left: 8px;
+        }
+        @include medium{
+            width: 100%;
+            margin-left: 8px;
+        }
+        @include large{
+            width: 63%;
+            margin-left: 8px;
+        }
+        @include x-large{
+            width: 64%;
+            margin-left: 9px;
+        }
+        @include xx-large{
+            width: 63%;
+            margin-left: 15px;
+        }
+
+        h4{
+            background-color: #fff;
+            color: #333;
+            font-size: 25px;
+            padding-bottom: 0;
+            @include x-small{
+                padding: 0;
+            }
+        }
+        i{
+          color: orange;
+
+            span{
+                color: #333;
+            }
+        }
+        h5{
+            font-size: 15px;
+        }
+        ul{
+            padding-right: 3px;
+            padding-left: 3px;
+            padding-top: 10px;
+            padding-bottom: 13px;
+            background-color:rgb(206, 206, 206);
+            font-size: 25px;
+            color: #333;
+            border-radius: 2px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            li{
+                
+                &:last-child{
+                    color: #Ff3636;
+                }
+               
+            }
+        }
+        .item-spec{
+            table{
+                border: 1px solid #dce2e9;
+                .item-spec th, td {
+                   border: 1px solid #dce2e9;
+                    padding: 2px 4px;
+                    line-height: 15px;
+                    font-size: 14px;
+                    border: 1px solid #dce2e9;
+                    font-weight: 400;
+                    tr{
+                       &:last-child{
+                        padding-left: 100px;
+                       }
+                    }
+                }
+        }
+        }
+       
+    }
+}
+.selling-all-car{
+
+    @include small{
+        margin-top: 40px;
+    }
+    @include large{
+        margin-left: 148px;
+    }
+    @include x-large{
+        margin-left: 184px;
+    }
+    @include xx-large{
+        margin-left: 221px;
+    }
+    .selling-all-item {
+        text-align: center;
+        position: relative;
+        z-index: 99;
+        border-radius: 20px;
+        padding: 15px;
+        padding: 17px 510px;
+        margin-left:230px;
+        margin-top: -30px;
+        z-index: 2;
+        box-shadow: 0 -15px 24px 8px rgb(158, 158, 158);
+        font-weight: 600;
+        color: #000;
+        transition: .3s;
+        @include x-small{
+            padding: 17px 135px;
+            margin-left: 0;
+        }
+        @include small{
+            padding: 16px 250px;
+            margin-left: 0px;
+        }
+        @include large{
+            padding: 16px 345px;
+        }
+        a{
+            width: 100%;
+            height: 100%;
+        }
+        @include medium{
+            padding: 16px 311px;
+        }
+        @include large{
+            padding: 16px 342px; 
+        }
+        @include x-large{
+            padding: 16px 425px;
+        }
+        @include xx-large{
+            padding: 16px 510px;
+        }
+        &:hover{
+            background-color: orange;
+            color: #fff;
+        }
+    }
+}
+}
+.car-selling-d{
+    @include large{
+        margin-bottom: 15px;
+    }
+}

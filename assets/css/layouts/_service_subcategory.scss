@@ -1,0 +1,286 @@
+.subcategory-area{
+
+    .subcategory{
+        margin: 15px 185px;
+        border: 1px solid #333;
+        @include x-small{
+            margin: 15px 10px;
+            padding: 0 16px;
+        }
+        @include small{
+            margin: 20px 40px;
+        }
+        @include x-large{
+            margin: 20px 125px;
+        }
+        .subcategory-header{
+           padding-left: 10px;
+           background: #f9f9fc;
+            border-bottom: 1px solid #c3c8eb;
+            @include small{
+                padding-left: 15px;
+                margin-left: 16px;
+                width: 94%;
+            }
+            @include medium{
+                width: 95%;
+            }
+            @include large{
+                width: 96%;
+            }
+            a{
+                h4{
+                    @include x-small{
+                        font-size: 26px;
+                    }
+                    @include small{
+                        padding-right: 41px;
+                        padding-top: 9px;
+                    }
+                    @include medium{
+                        padding-top: 18px;
+                        padding-left: 7px;
+                    }
+
+                    font-weight: 600;
+                    font-size: 25px;
+                    color: #0891FF;
+                    span{
+                        color: #ff3636;
+                    }
+                }
+            }
+
+            .subcategory-btn{
+                @include x-small{
+                    padding-bottom: 15px;
+                }
+                ul{
+                    li{
+
+                                                
+                        a{
+                            padding: 0 23px 0px 0px;
+                            display: block;
+                            white-space: nowrap;
+                            font-size: 12px;
+                            color: #666;
+                            padding-top: 2px;
+                            min-width: 40px;
+                            border-right: 1px solid #333;
+                            @include x-small{
+                                margin: -2px 11px 0px -11px;
+                                padding: 0 8px 0 18px;
+                            }
+                            @include small{
+                                padding: 10px 20px 5px 11px;
+                            }
+                            @include medium{
+                                padding: 17px 25px 14px 11px;
+                            }
+                            i{
+                                font-size: 15px;
+                                color: #ff3636;
+                                display: block;
+
+                            }
+
+                        }
+                        &:nth-child(4){
+                            a{
+                                    border-right: none;
+                            }
+                            }
+                    }
+                }
+            }
+
+
+        }
+    }
+    .subcaetgory-option{
+        padding: 0 50px;
+        @include x-small{
+            padding: 0 27px;
+        }
+        .subcat-header-bottom{
+            .subcat-bottom-main{
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 18px;
+                color: #3749bb;
+                margin: 8px 0;
+                padding-left: 10px;
+                @include medium{
+                    font-size: 14px;
+                    margin: 4px 0;
+                }
+                @include large{
+                    margin-top: 18px;
+                }
+                @include x-large{
+                    font-size: 18px;
+                }
+            }
+            .subcat-bottom-two{
+                font-size: 12px;
+                padding-left: 10px;
+                color: #333;
+                @include x-large{
+                    font-size: 13px;
+                }
+            }
+    
+            .single-bottom{
+                text-align: center;
+                @include small{
+                    flex-wrap: wrap;
+                    width: 478px;
+                    margin: 10px 0;
+                }
+                @include medium{
+                    width: 292px;
+                }
+                .bottom-one{
+                    display: inline-block;
+                    border: 1px dashed #ef4a23;
+                    padding: 8px 0;
+                    min-width: 140px;
+                    border-radius: 7px;
+                    text-align: center;
+                    color: #808996;
+
+                    @include small{
+                        flex-basis: 40%;
+                    }
+                    @include medium{
+                        flex-basis: 42%;
+                    }
+                    h4{
+                        font-size: 20px;
+                    }
+                    p{
+                     font-size: 10px;   
+                    }
+                    
+    
+                }
+                .bottom-two{
+                    border: 1px solid #3749bb;
+                    color: #fff;
+                    background: #3749bb;
+                    border-radius: 12px;
+                    width: 124px;
+                    padding: 6px 0;
+                    @include small{
+                        flex-basis: 40%;
+                    }
+                    @include medium{
+                        flex-basis: 42%;
+                    }
+                    h4{
+                        font-size: 20px;
+                    }
+                    p{
+                     font-size: 10px;   
+                    }
+                }
+            }
+        }
+        .component-header{
+            padding-left: 20px;
+            font-size: 11px;
+            background: #333;
+            color: #fff;
+            margin-left: 7px;
+            @include small{
+                width: 100%;
+            }
+        }
+    }
+    .subcategory-choice{
+        padding-left: 7px;
+        .subcategory-row{
+            @include small{
+                width: 471px;
+                padding: 15px;
+            }
+            @include medium{
+                width: 553px;
+            }
+            @include large{
+                width: 810px;
+            }
+            @include xx-large{
+                width: 968px;
+            }
+           .single-part{
+                i{
+                display: inline-block;
+                background:#EBECF8;
+                padding: 15px 15px;
+                color: #4858B8;
+                font-size: 25px;
+
+            }
+            h4{
+                display: inline-block;
+                font-size: 21px;
+                font-weight: 600;
+                color: #333;
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    background-color: rgb(198, 198, 198);
+                    top: 8px;
+                    left: 120px;
+                    width: 285px;
+                    height: 17px;
+                    @include x-small{
+                        top: 11px;
+                        left: 79px;
+                        width: 64px;
+                        height: 8px;
+                    }
+                    @include small{
+                        top: 7px;
+                        left: 104px;
+                        width: 145px;
+                        height: 9px;
+                    }
+                    @include large{
+                        left: 150px;
+                        width: 275px;
+                        height: 9px;
+                    }
+                }
+            }
+            p{
+                display: inline-block;
+                background: #333;
+                font-size: 10px;
+                padding: 0px 4px;
+                margin-top: -10px;
+                position: absolute;
+                margin-top: 2px;
+                margin-left: 2px;
+                color: #fff;
+            }
+
+        }
+
+    
+        .single-btn-area{
+            padding-top: 10px;
+            @include x-small{
+                padding-top: 13px;
+            }
+
+        }
+    }
+        
+    }
+
+
+}

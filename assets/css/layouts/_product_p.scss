@@ -1,0 +1,445 @@
+
+// rent-bottom 
+
+.product-bottom{
+    background-color: #F8F8F8;
+    .car-product-search{
+        padding: 0px 18px 0 0px;
+        position: relative;
+        @include small{
+            padding: 0px 0px 0 0px;
+        }
+        @include medium{
+            width: 690px;
+        }
+        @include large{
+            width: 206px;
+        }
+        @include x-large{
+            width: 276px;
+        }
+
+        .search-product{
+            width: 314px;
+            text-transform: capitalize;
+            padding: 6px 4px;
+            border-radius: 10px;
+            margin-top: 23px;
+            &:focus{
+                outline: 0;
+            }
+            @include small{
+                width: 567px;
+                margin-bottom: 14px;
+            }
+            @include medium{
+            width: 645px;
+            }
+            @include large{
+                width: 204px;
+            }
+            @include x-large{
+                width: 275px;
+            }
+        }
+        .search-btn{
+            position: absolute;
+            top: 22px;
+            right: -6px;
+            border: 0;
+            background:#0891FF;
+            padding: 7px 6px;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 0 8px 9px 0px;
+            text-transform: capitalize;
+            @include x-small{
+                padding: 8px 6px;
+                top: 23px;
+                right: 5px;
+            }
+            @include small{
+                padding: 8px 6px;
+                top: 22px;
+            }
+            @include medium{
+                top: 22px;
+                right: -1px;
+                padding: 8px 6px;
+            }
+            @include large{
+                padding: 8px 6px;
+                top: 23px;
+                right: -5px;
+            }
+            @include x-large{
+                top: 23px;
+                right: 1px;
+            }
+            @include xx-large{
+                padding: 8px 6px;
+            }
+
+        }
+        
+    }
+    .product-type{
+        @include x-small{
+            flex-wrap: wrap;
+        }
+        .single-type{
+            @include x-small{
+                flex-basis: 33%;
+                border-radius: 10px;
+            }
+            @include small{
+                padding: 3px 10px 0px 11px;
+            }
+            border: 1px solid #DCE1E7;
+            text-transform: capitalize;
+            padding: 4px 43px 0px 23px;
+            position: relative;
+            a{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .brand-img{
+                width: 100%;
+            }
+            &:first-child{
+                border-radius: 10px 0 0 10px;
+            }
+            &:last-child{
+                border-radius: 0px 10px 10px 0px;
+            }
+
+        }
+    }
+}
+
+.product-cart{
+    background-color: #F8F8F8;
+    .product-header{
+        font-size: 18px;
+        text-transform: capitalize;
+        font-weight: 600;
+        border-bottom: 1px solid #333;
+    }
+    .product-line-header{
+        span{
+            font-size: 13px;
+            font-weight: 600;
+        }
+        h5{
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+    .product-checkbox{
+        .single-check{
+            .input-box{
+
+                p{
+                    display: inline-block;
+                    font-size: 13px;
+                    color:rgb(79, 111, 143) ;
+                    font-weight: 600;
+                }
+                select{
+                    background-color: #fff;
+                    border: 0;
+                    text-transform: capitalize;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color:rgb(79, 111, 143) ;
+                }
+
+            }
+            .price{
+                font-size: 12px;
+                color:rgb(79, 111, 143) ;
+            }
+        }
+    }
+
+    .product-budget{
+        .paragraph-rent{
+            color:rgb(79, 111, 143) ;
+            font-size: 15px;
+        }    
+            input{
+                width: 325px;
+            }
+            .budget-checkbox{
+                .single-budget{
+                    .input-budget{
+                        input{
+                            width: 20px;
+                        }
+                        p{
+                            display: inline-block;
+                            font-size: 13px;
+                            color:#00AA00;
+                            font-weight: 600; 
+                            border: 1px solid #333;
+                            border-radius: 5px;
+                            padding: 0 2px;
+                        }
+                    }
+                    .budget{
+                        font-size: 12px;
+                        color:rgb(79, 111, 143) ;
+                    }
+                }
+            }
+    }
+
+    // ratings
+    .rating-product{
+        border: 1px solid #0068EF;
+        margin-top: 15px;
+        padding: 5px 0;
+        ul{
+            li{
+                display: inline-block;
+                padding: 5px 18px;
+                font-weight: 600;
+                a{
+                    color: #0068EF;
+                }
+
+            }
+        }
+    }
+
+
+
+}
+.product-list-option{
+    @include small{
+        padding-top: 20px;
+    }
+    ul{
+        border-bottom: 1px solid #DCE1E7;
+        li{
+            display: inline-block;
+            font-size: 17px;
+            padding: 0 15px;
+            font-weight: 500;
+            @include x-small{
+                font-size: 12px;
+                font-weight: 700;
+                padding: 0 0 0 3px;
+            }
+            &:nth-child(1){
+                @include x-small{
+
+                }
+            }
+            &:nth-child(5){
+                @include x-small{
+                   display: none; 
+                }
+                @include small{
+                    display: none;
+                }
+                @include medium{
+                    display: inline-block;
+                }
+                
+            }
+            a{
+                color: #0068EF;
+                &:hover{
+                border-bottom: 1px solid #0068EF;
+            } 
+            }
+            &:nth-child(1){
+                font-weight: 700;
+                color: #000;
+               
+            }
+
+        }
+    }
+}
+.single-product{
+    z-index: 2;
+    background-color: #FEFEFE;
+    position: relative;
+    border-radius: 10px;
+    height: 528px;
+    margin: 6px 0px;
+    padding: 0 13px;
+    
+    @include small{
+        height: 555px;
+        margin: 17px 21px 0px 85px;
+        padding: 20px 10px;
+        width: 407px;
+    }
+    @include medium{
+        height: 421px;
+        margin: 0 21px 15px 12px;
+        width: 338px;
+    }
+    @include large{
+        height: 328px;
+        margin: 0 0px 7px 3px;
+        width: 216px;
+
+    }
+
+    @include x-large{
+        height: 363px;
+        margin: 10px 5px;
+        padding: 15px 10px;
+        width: 277px;
+    }
+    @include xx-large{
+        height: 416px;
+        margin: 0 -5px 13px 10px;
+        padding: 0 15px;
+        width: 325px;
+    }
+    img{
+        width: 100%;
+        height: 71%;
+        padding: 50px 44px;
+        margin-bottom: 16px;
+        @include small{
+            height: 74%;
+            padding: 0;
+        }
+
+        @include medium{
+            height: 64%;
+        }
+        @include large{
+            padding: 0;
+            height: 50%;
+        }
+        @include x-large{
+            height: 55%;
+        }
+        @include xx-large{    
+            padding-top: 10px;
+            height: 62%;
+            width: 87%;
+        }
+    }
+    .discount-product{
+        position: absolute;
+        top: 4px;
+        right: 5px;
+        background: #ff3636;
+        font-size: 10px;
+        color: #fff;
+        font-weight: 500;
+
+
+    }
+    h5{
+        font-size: 14px;
+        font-weight: 500;
+        transition: .3s;
+        margin-top: -15px;
+        &:hover{
+            color: #ff3636;
+        }
+    }
+    h4{
+        font-size: 14px;
+        font-weight: 500;
+        transition: .3s;
+        &:hover{
+            color: #ff3636;
+        }
+    }
+    ul{
+        li{
+            display: inline-block;
+            color: #FFD700;
+        }
+    }
+    h6{
+        z-index: -1;
+        padding-bottom: 5px;
+        p{
+            display: inline-block;
+            margin-right: 18px;
+            position: relative;
+            font-size: 14px;
+            &:before{
+                position: absolute;
+                content: "";
+                width: 36px;
+                height: 1px;
+                top: 12px;
+                left: 0;
+                background-color: #333;
+                transform: skewY(-8deg);
+            }
+        }
+        span{
+            font-weight: 600;
+            font-size: 18px;
+            color: #ff3636;
+        }
+
+    }
+    .product-cart{
+        position: relative;
+        width: 100%;
+        padding: 10px 0px;
+        margin-top: -48px;
+        visibility: hidden;
+        transition: .1s;
+        z-index: 99;
+        background-color:#FEFEFE;
+        .btn-product{
+            font-weight: 600;
+            background: #ff3636;
+            color: #fff;
+            padding: 5px 7px;
+            border-radius: 4px;
+
+        }
+        i{
+            color: #ff3636;
+        }
+        
+    }
+    &:hover .product-cart{
+            margin-top: 0px;
+            visibility: visible;
+            
+        }
+}
+.page-changer{
+    @include x-small{
+        padding-left: 115px;
+    }
+    @include small{
+        padding-left: 190px;
+        margin-bottom: 15px;
+    }
+    @include medium{
+        padding: 0;
+    }
+    ul{
+        li{
+            display: inline-block;
+            font-size: 20px;
+            padding: 0 10px;
+            @include x-small{
+                font-size: 17px;
+                padding: 0 3px;
+            }
+            @include medium{
+                padding: 0 7px;
+            }
+        }
+    }
+}

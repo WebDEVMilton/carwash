@@ -1,0 +1,81 @@
+.schedule-area{
+
+    @include x-small{
+        padding-top: 7px;
+    }
+    @include small{
+        padding-top: 30px;
+    }
+    .schedule-about{
+        h4{
+            color: #333;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        p{
+            @include small{
+                font-size: 15px;
+            }
+        }
+    }
+    .schedule-main{
+
+
+       position: relative;
+        width: 70%;
+        margin-left: 90px;
+        padding: 20px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        text-align: center;
+        border-radius: 10px;
+        padding-top: 65px;
+        padding-bottom: 50px;
+        margin-top: -145px;
+        z-index: 15;
+        background-color: #fff;
+        box-shadow: 9px 28px 33px -17px #333;
+        @include x-small{
+            margin-left: -5px;
+            margin-top: -36px;
+            width: 100%;
+        }
+        @include small{
+            width: 100%;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            margin-top: 6px;
+        }
+        @include medium{
+            width: 73%;
+            padding-top: 44px;
+            margin-top: -8px;
+        }
+
+        h4{
+            @include x-small{
+                // text-align: left;
+            }
+            color: #03A9F4;
+            font-size: 31px;
+            font-weight: 700;
+        }
+            
+            .schedual-time{
+                .single-time{
+                    @include x-small{
+                        margin-top: 11px;
+                        margin-bottom: 1px;
+                        font-size: 14px;
+                    }
+
+                    margin-top: 25px;
+                    margin-bottom: 25px;
+                }
+            }
+
+        
+    }
+}

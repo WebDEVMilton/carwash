@@ -1,0 +1,54 @@
+.section-title{
+    text-align: center;
+    h4{
+        font-size: 35px;
+        margin-bottom: 40px;
+        position: relative;
+        @include x-small{
+            font-size: 18px;
+            font-weight: 700;
+        }
+        @include small{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            width: 340px;
+            height: 3px;
+            background-color: #333;
+            left: 0;
+            top: 17px;
+            opacity: 0.3;
+            @include x-small{
+                width: 40px;
+                height: 2px;
+                top: 14px;
+            }
+            @include small{
+                top: 13px;
+                width: 110px;
+            }
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            width: 340px;
+            height: 3px;
+            background-color: #333;
+            right: 0;
+            top: 17px;
+            opacity: 0.3;
+            @include x-small{
+                width: 40px;
+                height: 2px;
+                top: 14px;
+            }
+            @include small{
+                top: 13px;
+                width: 110px;
+            }
+        }
+    }
+}

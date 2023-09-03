@@ -1,0 +1,77 @@
+.bannar-area{
+    @include x-small{
+        height: 65vh;
+        width: 100%;
+        background-size: cover;
+        background-position: -193px 0px;
+    }
+    @include small{
+        height: 60vh;
+        background-position: center;
+    }
+    @include large{
+        height: 80vh;
+        background-position: center;
+    }
+    @include x-large{
+        height: 90vh;
+        background-position: center;
+    }
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    text-align: right;
+    .bannar-main{
+        color: #fff;
+        @include x-small{
+            padding-top: 180px;
+        }
+        @include small{
+            padding-top: 150px;
+        }
+        @include large{
+            padding-top: 155px;
+        }
+        @include x-large{
+            padding-top: 195px;
+        }
+        h4{
+
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            @include x-small{
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            @include small{
+                font-size: 35px;
+            }
+        }
+        p{
+            margin-bottom: 20px;
+            
+            @include x-small{
+                font-size: 11px;
+                margin-bottom: 15px;
+            }
+            
+        }
+    }
+    .btn-bannar{
+        @include x-small{
+            font-size: 12px;
+        }
+       
+        padding: 7px 44px 9px 44px;
+        background: orenge;
+        background: teal !important;
+        border-radius: 15px;
+        color: #fff;
+        font-weight: 600;
+        &:hover{
+            background-color: #333;
+            color: #fff;
+        }
+    }
+}

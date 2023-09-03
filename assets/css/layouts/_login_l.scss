@@ -1,0 +1,128 @@
+.login-img{
+    @include x-small{
+        display: none;
+    }
+    @include small{
+        display: none;
+    }
+    @include large{
+        display: block;
+        margin-top: 109px;
+    }
+    @include x-large{
+        margin-top: 65px;
+    }
+    @include xx-large{
+        margin-top: 15px;
+    }
+}
+.login-smal{
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url('/assets/img/login/Tablet\ login-cuate\(1\).png');
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        z-index: -1;
+        background-repeat: no-repeat;
+        @include x-small{
+            opacity: 0.4;
+            top: -70px;
+            left: -12px;
+        }
+        @include small{
+            top: -114px;
+            opacity: 0.6;
+        }
+        @include large{
+            display: none;
+        }
+
+    }
+.login-main{
+    position: relative;
+    margin: 140px 110px;
+    padding: 70px 33px;
+    border: 1px solid #333;
+    border-radius: 11px;
+    transition: .3s;
+    @include x-small{
+        margin: 71px 10px;
+    }
+    @include small{
+        margin: 140px 40px;
+    }
+    @include medium{
+        margin: 140px 82px;
+    }
+    @include large{
+        margin: 140px 1px;
+    }
+    &:hover{
+        box-shadow: 3px 2px 18px 2px #1FA3E0;
+    }
+    // &::before{
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     background-image: url('/assets/img/login/Tablet\ login-cuate\(1\).png');
+    //     width: 100%;
+    //     height: 100%;
+    //     background-size: cover;
+    //     z-index: -1;
+
+    // }
+    input{
+        width: 100%;
+        padding: 10px 10px;
+        border-radius: 5px;
+        margin-bottom: 12px;
+        border: 1px solid #1FA3E0;
+        &:focus{
+            outline: 0;
+        }
+
+    }
+    .login-btn{
+        .loginbtn{
+            background-color: #1FA3E0;
+            color: #fff;
+            font-weight: 600;
+            &:hover{
+                background-color: #0891FF;
+            }
+        }
+    }
+    .singupl{
+        font-size: 12px;
+        text-align: center;
+        a{
+            color: #0891FF;
+            &:hover{
+                border-bottom: 1px solid #0891FF;
+            }
+        }
+    }
+}
+}
+// .login-smal{
+//     position: relative;
+//     &::before{
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         background-image: url('/assets/img/login/Tablet\ login-cuate\(1\).png');
+//         width: 100%;
+//         height: 100%;
+//         background-size: cover;
+//         z-index: -1;
+//         display: none;
+
+//     }
+// }

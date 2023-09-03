@@ -1,0 +1,11 @@
+.add-area{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    // background-attachment: fixed;
+    @include x-small{
+        background-position: -38px 13px;
+    }
+
+}

@@ -1,0 +1,62 @@
+.productd-aread{
+    @include x-small{
+        padding-top:10px;
+    }
+    @include small{
+        padding-top:10px;
+    }
+    .single-productd{
+        @include x-small{
+            flex-wrap: wrap;
+        }
+        @include small{
+            flex-wrap: wrap;
+        }
+        .product-maind{
+            padding: 5 20px;
+            border-radius: 9px;
+            @include x-small{
+                flex-basis: 50%;
+                margin: 0 0 16px 0px;
+            }
+            @include small{
+                flex-basis: 35%;
+                margin: 0 0 16px 0px;
+            }
+            @include medium{
+                flex-basis: 24%;
+                margin: -6px 0 10px 6px;
+            }
+            @include large{
+                flex-basis: 20%;
+                
+            }
+            img{
+                width: 191px;
+                padding: 5px;
+                height: 154px;
+                @include x-small{
+                    width: 137px;
+                    height: 113px;
+                }
+                @include medium{
+                    width: 174px;
+                    padding: 2px;
+                    height: 154px;
+                }
+            }
+             &:hover{
+            box-shadow: 4px 1px 6px 0px #333;
+           }
+           h4{
+            font-size: 20px;
+            text-transform: capitalize;
+            font-weight: 600;
+            @include x-small{
+                font-size: 14px;
+            }
+           }
+        }
+       
+    }
+}

@@ -1,0 +1,29 @@
+.sponsor-area{
+    @include medium{
+        padding-bottom: 20px;
+    }
+    .sponsor-logo{
+        flex-wrap: wrap;
+        
+        img{
+            width: 150px;
+            transition: .4s;
+            @include x-small{
+                flex-basis: 40%;
+            }
+            @include medium{
+                width: 120px;
+            }
+            @include large{
+                width: 150px;
+            }
+            @include x-large{
+                width: 180px;
+            }
+           &:hover{
+            transform: translateY(-5px);
+        }  
+        }
+       
+    }
+}

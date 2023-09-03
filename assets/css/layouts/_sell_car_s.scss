@@ -1,0 +1,353 @@
+
+// rent-bottom 
+
+.car-sell-bottom{
+    background-color: #F8F8F8;
+    .car-search{
+        padding: 0px 18px 0 0px;
+        position: relative;
+        @include small{
+            padding: 0px 0px 0 0px;
+        }
+        @include medium{
+            width: 690px;
+        }
+        @include large{
+            width: 206px;
+        }
+        @include x-large{
+            width: 276px;
+        }
+        .search-product{
+            width: 314px;
+            text-transform: capitalize;
+            padding: 6px 4px;
+            border-radius: 10px;
+            margin-top: 23px;
+            &:focus{
+                outline: 0;
+            }
+            @include small{
+                width: 567px;
+                margin-bottom: 14px;
+            }
+            @include medium{
+            width: 645px;
+            }
+            @include large{
+                width: 204px;
+            }
+            @include x-large{
+                width: 275px;
+            }
+        }
+        .search-btn{
+            position: absolute;
+            top: 22px;
+            right: -6px;
+            border: 0;
+            background:#0891FF;
+            padding: 7px 6px;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 0 8px 9px 0px;
+            text-transform: capitalize;
+            @include medium{
+                top: 22px;
+                right: -1px;
+                padding: 8px 6px;
+            }
+            @include large{
+                padding: 8px 6px;
+                top: 23px;
+                right: -5px;
+            }
+            @include x-large{
+                top: 23px;
+                right: 1px;
+            }
+            @include xx-large{
+                padding: 8px 6px;
+            }
+
+        }
+
+        
+    }
+    .car-type{
+        @include x-small{
+            flex-wrap: wrap;
+        }
+        .single-type{
+            flex-basis: 33%;
+            border: 1px solid #DCE1E7;
+            text-transform: capitalize;
+            padding: 4px 43px 0px 23px;
+            position: relative;
+            border-radius: 10px;
+            @include small{
+                padding: 4px 5px 0px 6px;
+                border-radius: 10px;
+            }
+            a{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .brand-img{
+                width: 100%;
+            }
+            &:first-child{
+                border-radius: 10px 0 0 10px;
+            }
+            &:last-child{
+                border-radius: 0px 10px 10px 0px;
+            }
+
+        }
+    }
+}
+
+.car-rent{
+    background-color: #F8F8F8;
+
+
+
+
+}
+.car-sell-list-option{
+    @include small{
+        padding: 25px 0;
+    }
+    @include large{
+        padding: 0;
+    }
+    ul{
+        border-bottom: 1px solid #DCE1E7;
+        li{
+            display: inline-block;
+            font-size: 17px;
+            padding: 0 15px;
+            font-weight: 500;
+            @include x-small{
+                font-size: 12px;
+                padding: 0 1px;
+                font-weight: 700;
+            }
+            &:nth-child(5){
+                display: none;
+            }
+            a{
+                color: #0068EF;
+                &:hover{
+                border-bottom: 1px solid #0068EF;
+            } 
+            }
+            &:nth-child(1){
+                font-weight: 700;
+                color: #000;
+               
+            }
+
+        }
+    }
+}
+.car-selling-header{
+    background: #333;
+    color: #fff;
+    font-size: 23px;
+    margin-bottom: 9px;
+    @include x-small{
+        font-size: 15px;
+    }
+}
+.car-selling-main{
+    @include x-small{
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+    @include small{
+        margin-bottom: 25px;
+    }
+    @include large{
+        margin-bottom: 20px;
+    }
+    @include x-large{
+        margin-bottom: 15px;
+    }
+
+    .car-selling-part1{
+        @include x-small{
+            flex-basis: 100%;
+        }
+        @include small{
+            flex-basis: 59%;
+        }
+        @include large{
+            flex-basis: 50%;
+        }
+        @include x-large{
+            flex-basis: 35%;
+        }
+        
+        position: relative;
+        img{
+            width: 68%;
+            @include x-small{
+                width: 100%;
+            }
+            @include small{
+                height: 100%;
+                width: 100%;
+            }
+            @include large{
+                height: 100%;
+            }
+            @include x-large{
+                height: 100%;
+            }
+        }
+
+        h5{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #Ff3636;
+            color: #fff;
+            width: 70%;
+            text-align: center;
+            font-size: 16px;
+            @include x-small{
+                width: 100%;
+            }
+            @include small{
+                width: 100%;
+            }
+        }
+    }
+    .car-selling-part2{
+        margin-left: -122px;
+        width: 74%;
+        @include x-small{
+            flex-basis: 100%;
+            margin-left: 0;
+        }
+        @include small{
+            margin-left: 7px;
+            width: 74%;
+        }
+        h4{
+            background-color: #fff;
+            color: #333;
+            font-size: 25px;
+            padding-bottom: 0;
+            margin-bottom: 10px;
+            width: 100%;
+            @include x-small{
+                font-size: 20px;
+            }
+        }
+        i{
+          color: orange;
+
+            span{
+                color: #333;
+            }
+        }
+        h5{
+            font-size: 15px;
+        }
+        ul{
+            padding-right: 3px;
+            padding-left: 3px;
+            padding-top: 10px;
+            padding-bottom: 13px;
+            background-color:rgb(206, 206, 206);
+            font-size: 25px;
+            color: #333;
+            border-radius: 2px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            @include x-small{
+                font-size: 14px;
+                font-weight: 700;
+            }
+            li{
+                
+                &:last-child{
+                    color: #Ff3636;
+                }
+               
+            }
+        }
+        .item-spec{
+            table{
+                border: 1px solid #dce2e9;
+                .item-spec th, td {
+                   border: 1px solid #dce2e9;
+                    padding: 2px 4px;
+                    line-height: 15px;
+                    font-size: 14px;
+                    border: 1px solid #dce2e9;
+                    font-weight: 400;
+                    tr{
+                       &:last-child{
+                        padding-left: 100px;
+                       }
+                    }
+                }
+        }
+        }
+       
+    }
+    .selling-all-item {
+        ul{
+            text-align: center;
+            margin-left: 100px;
+            li{
+                i{
+                    font-size: 20px;
+                    margin: 10px;
+                    width: 31px;
+                    background: #ddd;
+                    border-radius: 50%;
+                    height: 27px;
+                    padding: 3px 0 0px 1px;
+                    box-shadow: 1px 0 5px 0px #333;
+                    &:hover{
+                        border-bottom: none;
+                    }
+                }
+                display: inline-block;
+            }
+        }
+
+    }
+}
+
+.page-changer{
+    @include x-small{
+        padding-left: 115px;
+    }
+    @include small{
+        padding-left: 190px;
+        margin-bottom: 15px;
+    }
+    @include medium{
+        padding: 0;
+    }
+    ul{
+        li{
+            display: inline-block;
+            font-size: 20px;
+            padding: 0 10px;
+            @include x-small{
+                font-size: 17px;
+                padding: 0 3px;
+            }
+            @include medium{
+                padding: 0 7px;
+            }
+        }
+    }
+}
