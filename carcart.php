@@ -1,11 +1,17 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
+<!DOCTYPE php>
 <?php 
- Session::checkSession();
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
 ?>
 
-<!DOCTYPE php>
+
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -187,7 +193,7 @@
                     </div>
                     <div class="quantity-checkbox-c">
                         <input type="checkbox"> Cash On Delivery
-                        <a href="" class="buy-btn-c">Buy now</a>
+                        <a href="contact.php" class="buy-btn-c">Buy now</a>
                     </div>
 
 

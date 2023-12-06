@@ -1,8 +1,22 @@
-<?php include 'lib/database.php';?>
-<?php $db=new database(); ?>
-
-
 <!DOCTYPE php>
+
+<?php 
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
+?>
+
+
+
+
+
+
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">

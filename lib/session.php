@@ -22,7 +22,7 @@
 		 self::init();
 		 if (self::get("login") ==false){
 			  self::destroy();
-			   header("Location:../index.php");
+			   header("Location:index.php");
 			 
 		 }
 		

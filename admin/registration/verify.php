@@ -11,7 +11,7 @@ if (isset($_GET['code'])){
 
  
 
-$sql = "UPDATE user  SET is_verified='1' WHERE code =$id ";
+$sql = "UPDATE user  SET status ='1' WHERE code =$id ";
 
 $result =$db->update($sql);
 

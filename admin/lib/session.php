@@ -22,7 +22,7 @@
 		 self::init();
 		 if (self::get("login") ==false){
 			  self::destroy();
-			   header("Location:../admin.php");
+			   header("Location:registration/login.php");
 			 
 		 }
 		

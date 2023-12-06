@@ -1,8 +1,11 @@
-<?php include 'lib/database.php'?>
-<?php $db=new database(); ?>
-<?php ob_start(); ?>
-
 <!DOCTYPE php>
+
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
+?>
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -174,7 +177,7 @@
                     <form action="" method="post">
                         Name:<input type="text" placeholder="" name="name">
                         Email:<input type="text" placeholder="" name="email">
-                        Password:<input type="text" placeholder="" name="password">
+                        Password:<input type="password" placeholder="" name="password">
                         Phone:<input type="text" placeholder="" name="phone">
                         Address:<input type="text" placeholder="" name="address">
                         City:<input type="text" placeholder="" name="city">

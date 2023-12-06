@@ -1,4 +1,4 @@
-<?php include 'session.php'?>
+<?php include 'lib/session.php';?>
 <?php Session::checkSession();?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
 				if(isset($_GET['action'])){
 							
 							Session::destroy();
-							header("Location:../registration/login.php");
+							header("Location:registration/login.php");
 						}					
 					
 

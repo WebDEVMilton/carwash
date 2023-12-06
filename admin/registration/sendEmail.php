@@ -17,8 +17,6 @@ use PHPMailer\PHPMailer\Exception;
 
             
         
- 
-
         require 'PHPMailer/src/Exception.php';
 
         require 'PHPMailer/src/PHPMailer.php';
@@ -37,9 +35,9 @@ use PHPMailer\PHPMailer\Exception;
 
             $mail->SMTPAuth = true;  // enable smtp authentication                             
 
-            $mail->Username = 'sajidispak981@gmail.com';  // sender gmail host              
+            $mail->Username = 'faisal.lu.ac@gmail.com';  // sender gmail host              
 
-            $mail->Password = 'zdldyuwqzuypuuug'; // sender gmail host password                          
+            $mail->Password = 'hyfyazjcdarbwpfn'; // sender gmail host password                          
 
             $mail->SMTPSecure = 'tls';  // for encrypted connection                           
 
@@ -55,13 +53,13 @@ use PHPMailer\PHPMailer\Exception;
 
             $mail->Subject = 'Email verification';
 
-            $mail->Body    = 'Please click this button to verify your user account: <a href=http://localhost/carcare/admin/registration/verify.php?code='.$code.'>Verify</a>' ;
+            $mail->Body    = 'Please click this button to verify your user account: <a href=http://localhost/carcare3/registration/verify.php?code='.$code.'>Verify</a>' ;
 
  
 
             $mail->send();
 
-            echo "messaage has been send";
+            echo "<script>alert('message has been send')</script>";
 
         } catch (Exception $e) { // handle error.
 

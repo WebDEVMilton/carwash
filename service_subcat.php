@@ -1,11 +1,17 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
+<!DOCTYPE php>
+
 <?php 
- Session::init();
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
 ?>
 
-<!DOCTYPE php>
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -171,12 +177,12 @@
 
               <?php
               
-              $select_querry="select servicepackage.*,servicecat.*
+              $select_querry="select servicepackage.*,servicecat.service_name
               from servicepackage 
               inner join servicecat on
               servicecat.id=servicepackage.service_id 
               where servicepackage.service_id='$serviceid'
-              order by rand() limit 4";
+              order by servicepackage.id asc limit 4";
 
               $read=$db->select($select_querry);
               if($read){
@@ -199,7 +205,11 @@
 
                     ?>
 
-                        <a href="booking_service.php?subatpkg_id=<?php echo $result['id']; ?>" class="service_sub_btn">Book now</a>
+
+
+
+
+                        <a href="booking_service.php?subatpkgd_id=<?php echo $result['id']; ?>" class="service_sub_btn">Book now</a>
 
                         <?php };?>
                     <?php

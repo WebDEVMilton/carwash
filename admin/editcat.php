@@ -1,5 +1,6 @@
 <?php include 'inc/header.php' ;?>
 <?php include 'inc/sidebar.php' ;?>
+
         <div class="grid_10">
 			<?php 
 				if(!isset($_GET['catid']) || $_GET['catid'] == NULL){

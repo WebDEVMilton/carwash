@@ -1,11 +1,17 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
+<!DOCTYPE php>
 <?php 
- Session::init();
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
 ?>
 
-<!DOCTYPE php>
+
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -145,7 +151,7 @@
                 <div class="contact-header-main text-align-center text-transform-uppercase">
                     <i class="fa-sharp fa-solid fa-droplet"></i>
                     <h4>contact information</h4>
-                    <p>Our company was founded in 2000. We work daily to become better <br/> and we are ready to share best practices.</p>  
+                    <p>Please talk to our company for car sell!! <br/> and if you chosse any car, contact with us thorugh the giving your valid information</p>  
                 </div>
 
             </div>

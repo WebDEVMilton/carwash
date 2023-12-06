@@ -1,19 +1,15 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
-<?php 
- Session::checkSession();
-?>
-
-<?php 
-
-    if(isset($_GET['product_cartid'])){
-       $product_cartid =$_GET['product_cartid'];
-    }
-
-?>
-
 <!DOCTYPE php>
+
+<?php 
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
+?>
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -94,6 +90,15 @@
 </div>
 
 <?php
+
+        if(isset($_GET['product_cartid'])){
+            $product_cartid=$_GET['product_cartid'];
+        }
+
+?>
+
+
+<?php
 				if(isset($_GET['action'])){
 							
 							Session::destroy();
@@ -158,15 +163,16 @@
                         $phone=$_SESSION['phone'];
                         $city=$_SESSION['city'];
                         $address=$_SESSION['address'];
-                        $product_image=$_POST['product_image'];
+                        // $product_image=$_POST['product_image'];
                         $product_name=$_POST['product_name'];
                         $product_price=$_POST['product_price'];
+                        $product_id=$_POST['product_id'];
 
 
                         if($name||$phone||$city||$address||$product_image||$product_name||$product_price){
 
-                            $select_querry="insert into orders('customer_name','product_img','product_name','product_price','phone_num','city','address')
-                            values($name,$product_image,$product_name,$product_price,$phone_num,$city,$address)";
+                            $select_querry="insert into orders(product_id ,customer_name,product_img,product_name,product_price,phone_num,city,address)
+                            values('$product_id','$name','0','$product_name','$product_price','$phone','$city','$address')";
 
                             $read=$db->insert($select_querry);
                             if($read){
@@ -181,10 +187,6 @@
 
                 ?>
 
-
-
-
-
                 <form action="" method="post">
 
 
@@ -194,7 +196,7 @@
 
 
                                 <h4 name="name">Delivery to:<?php echo $_SESSION['name']; ?></h4>
-                                <span><h4>Location: <span style="display: inline;" name="city"><?php echo $_SESSION['city'];?>,</span><span name="address" style="display: inline;"><?php echo $_SESSION['address'];?></span>  </h4><a href=""> change</a></span>
+                                <span><h4>Location:<?php echo $_SESSION['address'];?> <span style="display: inline;" ><?php echo $_SESSION['city'];?>,</span><span name="address" style="display: inline;"></span>  </h4><a href=""> change</a></span>
 
                                 <div class="cart-condition">
                                     <h5>Collect your parcel from the nearest Daraz Pick-up Point with a reduced shipping fee</h5>
@@ -208,15 +210,11 @@
                     </div> 
                 <div class="product-purchaes">
                     <div class="row">
-                        
                             <div class="col-xxl-12">
-
-
                                 <h4><span>Mall</span>Time Zone</h4>
                                 <div class="product-details-purchase d-flex  justify-content-space-between align-content-center">
-
+                                    
                                  <?php
-                            
                                     $select_querry="SELECT * FROM product WHERE id ='$product_cartid'";
                                     $read=$db->select($select_querry);
 
@@ -260,7 +258,34 @@
                             <a href="" class="cupon-btn">enter</a>
                             <h5>Delivary Fee: <span></span> </h5>
                             <h4 class="total">Total: </h4>
-                            <a  href="" class="order-btn" name="submit">Procced to Order</a>
+                            
+                            <form action="" method="post">
+                                                                    
+                            <?php
+                                    $select_querry="SELECT * FROM product WHERE id ='$product_cartid'";
+                                    $read=$db->select($select_querry);
+
+                                    if($read){
+                                        while($result_cart=$read->fetch_assoc()){
+
+                                ?> 
+
+                                <!-- <input type="text"> -->
+
+                                <!-- <input type="image" src="admin/<?php echo $result_cart['product_image'];?>" name="product_img" alt="Submit" width="48" height="48">  -->
+                                <input type="hidden" name="product_name" value="<?php echo $result_cart['product_name'];?>">
+                                <input type="hidden" name="product_price" value="<?php echo $result_cart['current_price'];?>">
+                                <input type="hidden" name="product_id" value="<?php echo $result_cart['id'];?>">
+
+                                <input type="submit" class="order-btn" value="Procced to Order" class="signup-btn" name="submit">
+
+                                
+
+
+
+                                <?php }}?> 
+
+                            </form>
 
                         </div>
                     </div>
@@ -273,19 +298,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

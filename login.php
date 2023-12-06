@@ -1,15 +1,21 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php';?>
 
 
-<?php $db=new database();?>
-<?php    
-    Session::init();
-
-?>
 
 <!DOCTYPE html>
+
+<?php 
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
+?>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +26,44 @@
 
 </head>
 <body>
+
+                         <?php
+                            if($_SERVER['REQUEST_METHOD'] =='POST'){
+                                
+                            $email= mysqli_real_escape_string($db->link,$_POST['email']);
+                            $password= $_POST['password'];
+
+
+                            $query=  "SELECT * from customers 	  
+							          WHERE email='$email' AND password='$password' 
+									  order by customers.id
+									  ";
+                  
+                            
+                            $result= $db->select($query);
+                            if($result != false){
+                            $value=$result->fetch_array();
+                                Session::set("login",true);
+                                Session::set("email",$value['email']);
+                                Session::set("password",$value['password']);
+                                Session::set("name",$value['name']);
+                                Session::set("phone",$value['phone']);
+                                Session::set("address",$value['address']);
+                                Session::set("city",$value['city']);
+                                Session::set("pakage_name",$value['pakage_name']);
+                                Session::set("id",$value['id']);
+                                
+                              header("Location:index.php");
+                         
+                             }else{
+                            echo   "<script>alert('user name or password not match')</script>";
+                            }
+                            }   
+                                                        
+                          ?>
     
     <!-- header_top -->
-
+                            
     <div class="header-top">
         <div class="container">
               <div class="row">
@@ -136,47 +177,11 @@
 
                     <?php
                     
-                    if(isset($_GET['product_cartid'])){
+                   /*if(isset($_GET['product_cartid'])){
                         $product_cartid=$_GET['product_cartid'];
-                    }
+                    }*/
                     ?>
-                        <?php
-                            if(isset($_POST['submit'])){
-                                
-                            $email= mysqli_real_escape_string($db->link,$_POST['email']);
-                            $password= $_POST['password'];
-
-
-
-
-                            $query= "SELECT customers.*,servicepackage.*
-                            FROM customers
-                            INNER JOIN servicepackage ON
-                            servicepackage.id=customers.servicepackage_id
-                            WHERE  email='$email' AND password='$password' ";
-                  
-                            
-                            $result= $db->select($query);
-                            if($result != false){
-                            $value=$result->fetch_array();
-                                Session::set("login",true);
-                                Session::set("email",$value['email']);
-                                Session::set("password",$value['password']);
-                                Session::set("name",$value['name']);
-                                Session::set("phone",$value['phone']);
-                                Session::set("address",$value['address']);
-                                Session::set("pakage_name",$value['pakage_name']);
-                                Session::set("id",$value['id']);
-                                
-                                header("Location:index.php");
-                         
-
-                             }else{
-                            echo   "<script>alert('user name or password not match')</script>";
-                            }
-                            }   
-                                                        
-                            ?>
+                       
 
 
                     <form action="" method="post">

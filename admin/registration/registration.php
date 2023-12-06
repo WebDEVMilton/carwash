@@ -7,8 +7,6 @@ include('sendEmail.php');
 
 <?php
 
-				
-
 					  $db=new database();
 
 					  if(isset($_POST['submit'])) {
@@ -43,7 +41,7 @@ include('sendEmail.php');
 							
 							else{
 								
-							$sql = "INSERT INTO user(fname,lname,email,password,code) VALUES('$fname','$lname','$email','$password', '$code')";
+							$sql = "INSERT INTO user(fname,lname,email,password,status,code) VALUES('$fname','$lname','$email','$password','user','$code')";
 
 							$result = $db->insert($sql);
 
@@ -67,82 +65,72 @@ include('sendEmail.php');
 			?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
-    <title>Registration</title>
-</head>
+    <title>  Registration  </title>
+    <link rel="stylesheet" href="assets/style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-
-    <div class="form">
-      
-        <ul class="tab-group">
-          <li class="tab active"><a style="margin-left:120px;" href="login.php">Login Form</a></li>
-          
-        </ul>
-        
-        <div class="tab-content">
-          <div id="signup">   
-            <h1>Sign Up Here</h1>
-						
-            
-        <form action="" method="post">
-		        
-            <div class="top-row">
-              <div class="field-wrap">
-                <label>
-                  First Name<span class="req">*</span>
-                </label>
-                <input type="text" name="fname" required />
-              </div>
-          
-              <div class="field-wrap">
-                <label>
-                  Last Name<span class="req">*</span>
-                </label>
-                <input type="text" name="lname" required />
-              </div>
-            </div>
-  
-            <div class="field-wrap">
-              <label>
-                Email Address<span class="req">*</span>
-              </label>
-              <input type="email"  name="email" required />
-            </div>
-            
-            <div class="field-wrap">
-              <label>
-                Password<span class="req">*</span>
-              </label>
-              <input type="password" name="password" required />
-            </div>
-			   <div class="field-wrap">
-              <label>
-                Confirm Password<span class="req">*</span>
-              </label>
-              <input type="password" name="con_password" required />
-            </div>
-            
-            <input type="submit" name="submit" value="submit" class="button button-block" />
-            
-            </form>
-  
+  <div class="container">
+    <p>You are already register?<a href="login.php">login here</a></p>
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action=" " method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" name="fname" placeholder="Enter your name" required>
           </div>
-          <div >   
-           
-            
-            
-           </div>
-        
-        </div><!-- tab-content -->
-        
-  </div> <!-- /form -->
+          <div class="input-box">
+            <span class="details">Last name</span>
+            <input type="text" name="lname" placeholder="Enter your username" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" name="email" placeholder="Enter your email" required>
+          </div>
+          <!--<div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required>
+          </div>-->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" name="password" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" name="con_password" placeholder="Confirm your password" required>
+          </div>
+        </div>
+       <!-- <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>-->
+        <div class="button">
+          <input type="submit" name="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
 
-  <script src="main.js"></script>
-    
 </body>
 </html>

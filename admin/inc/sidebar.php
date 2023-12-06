@@ -122,7 +122,8 @@
 
                         <li><a class="menuitem">Orders</a>
                             <ul class="submenu">
-                                <li><a href="banner_list_d.php">Order List</a></li>
+                                <li><a href="order_list_d.php">Order List</a></li>
+                                <li><a href="booking_list_d.php">Booking</a></li>
                             </ul>
                         </li>
                         

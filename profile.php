@@ -1,11 +1,17 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
-<?php 
- Session::checkSession();
-?>
 
 <!DOCTYPE php>
+
+<?php 
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
+?>
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -149,110 +155,159 @@
                     </div>
 
                     <form action="">
-                        <input type="text" placeholder="" value="">
-                        <input type="text" placeholder="" value="">
-                        <input type="text" placeholder="" value="">
+                        <input type="text" placeholder="" value="<?php echo $_SESSION['name'];?>">
+                        <input type="text" placeholder="" value="<?php echo $_SESSION['phone'];?>">
+                        <input type="text" placeholder="" value="<?php echo $_SESSION['address'];?>">
                     </form>
                 </div>
                 <div class="profile-btn">
-                    <a href="" class="btn-profile">Log out</a>
+                    <a href="?action=logout" class="btn-profile">Log out</a>
                 </div>
                 
             </div>
             <div class="col-xxl-8 col-xxl-90 col-sm-12 col-md-12 col-lg-6 cart-shadow">
                 <h4 class="cart-main text-align-center fw-700">Cart</h4>
+
+                <!-- delete booking -->
+                <?php
+                    $db=new database();
+
+                    if(isset($_GET['deletebooking'])){
+                        $deletebooking_id=$_GET['deletebooking'];
+
+                    $delete_query="Delete from booking 
+                    where id='$deletebooking_id' ";
+
+                    $read=$db->delete($delete_query);
+                    if($read){
+                        echo"<script> alert('Delete Successful') </script>";
+                    }
+                    else{
+                        echo"<script> alert('somthing  went wrong') </script>";
+
+                    }
+
+                }
+
+                    ?> 
+                <!-- delete end  -->
+
+                <!-- delete orders -->
+                <?php
+                    $db=new database();
+
+                    if(isset($_GET['deleteproduct'])){
+                        $deleteproduct=$_GET['deleteproduct'];
+
+                    $delete_orders="Delete from orders 
+                    where id='deleteproduct' ";
+
+                    $read_orders=$db->delete($delete_orders);
+                    if($read_orders){
+                        echo"<script> alert('Delete Successful') </script>";
+                    }
+                    else{
+                        echo"<script> alert('somthing  went wrong') </script>";
+
+                    }
+
+                }
+
+                    ?> 
+                <!-- delete end  -->
+                
+                <!-- select booking  -->
+                <?php
+                    $bookingselect="SELECT * from booking 
+                    
+                    order by id desc limit 3";
+
+                    $read=$db->select($bookingselect);
+                    if($read){
+                        while($result_booking=$read->fetch_assoc()){
+                
+                
+                ?>
+
                 <div class="row">
                     <div class="col-xxl-12 col-sm-12 ">
 
                         <div class="cart-option">
                         <div class="cart-details d-flex justify-content-space-between align-item-center">
-                            <div class="product-img">
+                            <!-- <div class="product-img">
                                 <img src="assets/img/product/MINI-PNEUMATIC-TOOL-KIT.jpg" alt="">
-                            </div>
+                            </div> -->
                             <div class="product-name">
-                                <h5>Tenson</h5>
+                                <h5><?php echo $result_booking['pakage_name']?></h5>
                             </div>
                             <div class="product-price">
-                                <h6>$50</h6>
+                                <h6><?php echo $result_booking['appoinment_time']?></h6>
                             </div>
                             <div class="product-btn d-inline-flex justify-content-space-around">
-                                <a href="" class="btn-edit">Edit</a>
-                                <a href="" class="btn-Remove">Remove</a>
+                            <?php
+                                $status=$result_booking['status'];
+                                if($status==0){
+                            ?>
+                            <p href="">pending</p>      
+                           <?php } ?>
+                            <?php
+                                $status=$result_booking['status'];
+                                if($status==1){
+                            ?>
+                            <p  href="">Approved</p>      
+                           <?php } ?>
+                                    
+                                <a class="btn-Remove"  onclick="alert('are you sure')"  href="?deletebooking=<?php echo $result_booking['id']?>">Remove</a>
                             </div>
                         </div>                            
                         </div>
 
                     </div>
                 </div>
+                
+                <?php }}?>
+            <!-- booking end  -->
+                <h4 style=" text-align:center; color:blue;">Product</h4>
+                    <?php 
+                        $select_order = "SELECT orders.*, product.product_image 
+                            from orders
+                            inner join product on
+                            product.id=orders.product_id
+                            order by orders.customer_name";
+                        $readorder=$db->select($select_order);
+
+                      if($readorder){
+
+                        while($resultpro=$readorder->fetch_assoc()){
+                        
+                    ?>
+
+
                 <div class="row">
                     <div class="col-xxl-12 col-sm-12">
 
                         <div class="cart-option">
                         <div class="cart-details d-flex justify-content-space-between align-item-center">
                             <div class="product-img">
-                                <img src="assets/img/product/MINI-PNEUMATIC-TOOL-KIT.jpg" alt="">
+                                <img width="70" height="50" src="<?php echo $resultpro['product_image']?>" alt="">
                             </div>
                             <div class="product-name">
-                                <h5>Tenson</h5>
+                                <h5><?php echo $resultpro['product_name'] ?></h5>
                             </div>
                             <div class="product-price">
-                                <h6>$50</h6>
+                                <h6><?php echo $resultpro['product_price'] ?></h6>
                             </div>
                             <div class="product-btn d-inline-flex justify-content-space-around">
-                                <a href="" class="btn-edit">Edit</a>
-                                <a href="" class="btn-Remove">Remove</a>
+                                <!-- <a href="" class="btn-edit">Edit</a> -->
+                                <a class="btn-Remove"  onclick="alert('are you sure')"  href="?deleteproduct=<?php echo $resultpro['id']?>">Remove</a>
                             </div>
                         </div>                            
                         </div>
 
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xxl-12 col-sm-12">
+            <?php }}?>
 
-                        <div class="cart-option">
-                        <div class="cart-details d-flex justify-content-space-between align-item-center">
-                            <div class="product-img">
-                                <img src="assets/img/product/MINI-PNEUMATIC-TOOL-KIT.jpg" alt="">
-                            </div>
-                            <div class="product-name">
-                                <h5>Tenson</h5>
-                            </div>
-                            <div class="product-price">
-                                <h6>$50</h6>
-                            </div>
-                            <div class="product-btn d-inline-flex justify-content-space-around">
-                                <a href="" class="btn-edit">Edit</a>
-                                <a href="" class="btn-Remove">Remove</a>
-                            </div>
-                        </div>                            
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xxl-12 col-sm-12">
-
-                        <div class="cart-option">
-                        <div class="cart-details d-flex justify-content-space-between align-item-center">
-                            <div class="product-img">
-                                <img src="assets/img/product/MINI-PNEUMATIC-TOOL-KIT.jpg" alt="">
-                            </div>
-                            <div class="product-name">
-                                <h5>Tenson</h5>
-                            </div>
-                            <div class="product-price">
-                                <h6>$50</h6>
-                            </div>
-                            <div class="product-btn d-inline-flex justify-content-space-around">
-                                <a href="" class="btn-edit">Edit</a>
-                                <a href="" class="btn-Remove">Remove</a>
-                            </div>
-                        </div>                            
-                        </div>
-
-                    </div>
-                </div>
 
             </div>
         </div>

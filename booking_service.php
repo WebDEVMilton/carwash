@@ -1,20 +1,35 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
+<!DOCTYPE php>
+
 <?php 
- Session::init();
+include 'lib/session.php';
+Session:: init();
+
+// ob_start();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
 ?>
 
-<!DOCTYPE php>
 <php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+	
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
     <link rel="stylesheet" href="assets/plugins/fontawesome/slicknav/slicknav_min.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <script src="main.js" defer></script>
 </head>
 <body>
     
@@ -151,8 +166,8 @@
     <?php
     
     
-    if(isset($_GET['subatpkg_id'])){
-        $subatpkg_id=$_GET['subatpkg_id'];
+    if(isset($_GET['subatpkgd_id'])){
+        $editid=$_GET['subatpkgd_id'];
     }
     
     
@@ -187,6 +202,49 @@
                 
                 
                 if(isset($_POST['submit'])){
+                    $customer_name=$_POST['customer_name'];
+                    $customer_email=$_POST['customer_email'];
+                    $phone_number=$_POST['phone_number'];
+                    $pakage_name=$_POST['pakage_name'];
+                    $address=$_POST['address'];
+                    $appoinment_time=$_POST['appoinment_time'];
+
+                    if(empty($customer_name)||empty($customer_email)||empty($phone_number)||empty($pakage_name)||empty($appoinment_time)){
+                        echo  "<script>alert('please insert all data')</script>";
+
+                    }
+                    
+                    else{
+                        $selectmain="SELECT * from booking where appoinment_time='$appoinment_time' limit 1";
+                        $readmain=$db->select($selectmain);
+
+                        if($readmain !=false){
+                            echo"<script>alert('Please select the different time')</script>";
+                        }else{
+
+                            $insert_querry="INSERT into booking(customer_name,customer_email,phone_number,address,pakage_name,appoinment_time,status) 
+                            values('$customer_name','$customer_email','$phone_number','$address','$pakage_name','$appoinment_time',0)
+                            ";
+                            $read=$db->insert($insert_querry);
+    
+                            echo  "<script>alert('Insert Success')</script>";
+    
+                            // header("Location:dateTime.php");
+    
+                            // ob_end_flush();
+                        }
+
+
+
+                    }
+
+
+
+
+
+
+
+
 
 
 
@@ -206,38 +264,34 @@
                 
                 ?>
 
-                    <form action="" method="post">
+                    <form  method="post">
 
-
-                        Name:<input type="text" placeholder="" name="" value="<?php echo $_SESSION['name'];?>">
-                        Email:<input type="text" placeholder="" name="" value="<?php echo $_SESSION['email'];?>">
-                        Phone:<input type="text" placeholder="" value="<?php echo $_SESSION['phone'];?>">
-                        Address:<input type="text" placeholder="" value="<?php echo $_SESSION['address'];?>">
-                        City:<input type="text" placeholder="" value="<?php echo $_SESSION['city'];?>">
-
+                        Name:<input type="text" placeholder="" name="customer_name" value="<?php echo $_SESSION['name'];?>">
+                        Email:<input type="text" placeholder="" name="customer_email" value="<?php echo $_SESSION['email'];?>">
+                        Phone:<input type="text" placeholder="" name="phone_number" value="<?php echo $_SESSION['phone'];?>">
+                        Address:<input type="text" placeholder="" name="address" value="<?php echo $_SESSION['address'];?>">
                         
-                        <!-- <?php
-                        
-                        $select_querry="SELECT servicecat.*, servicepackage.*
-                        FROM servicepackage
-                        INNER JOIN servicecat ON servicecat.id = servicepackage.service_id 
-                        WHERE servicepackage.id = '$subatpkg_id'
-                        order by servicepackage.pakage_name";
-                        
+                        <?php
+                             $query = "SELECT * FROM servicepackage WHERE id='$editid' ";
 
-                        $read=$db->select($select_querry);
-                        if($read){
-                            while($resultd=$read->fetch_assoc()){
-                                                
-                        ?> -->
+                            $readpkg=$db->select($query);
 
-                        Enter Pakage Name:<input type="text" placeholder="" name="" value=" <?php echo $_Session['pakage_name']; ?>">
-                        Enter Color Name:<input type="text" placeholder="" name="">
+                            if($readpkg){
+                                while($resultc=$readpkg->fetch_assoc()){
+                        
+                        ?>
+
+                        Enter Pakage Name:<input type="text" placeholder="" name="pakage_name"  value="<?php echo  $resultc['pakage_name'];?>">
+                           <?php }} ?>
+                         
+                           <!-- <input style="margin-top: 10px;" type="datetime-local" id="meeting-time" name="appoinment_time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00"/> -->
+ 
+                        <input type="datetime-local" name="appoinment_time"> 
+
                         <input type="submit" value="Book Order" class="signup-btn" name="submit">
-
-
-                        <!-- <?php }}?> -->
+                        
                     </form>
+
                 </div>
 
             </div>
@@ -402,6 +456,27 @@
 
     <!-- stikey header -->
     <script>
+
+var today = new Date().toISOString().slice(0, 16);
+
+//document.getElementsByName("book")[0].min = today;
+
+document.querySelector('#from').min = today;
+
+
+$(function() {
+$('input[name="appoinment_time"]').daterangepicker({
+timePicker: true,
+startDate: moment().startOf('hour'),
+endDate: moment().startOf('hour').add(32, 'hour'),
+locale: {
+format: 'DD/M hh:mm A'
+}
+});
+});
+
+      
+
         $(window).load(function(){
             $(this).on('scroll', function() {
                 if($(this).scrollTop() > 100) {
@@ -414,6 +489,9 @@
 
         // slicknav 
         $('.header-area ul').slicknav();
+
+
+
 
     </script>
 

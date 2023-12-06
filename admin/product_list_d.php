@@ -24,7 +24,6 @@
 
 					<tbody>
 
-
                     <?php
                         // delete product   
                             $db = new Database();

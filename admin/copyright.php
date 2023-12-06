@@ -1,5 +1,7 @@
 ﻿<?php include 'inc/header.php' ;?>
 <?php include 'inc/sidebar.php' ;?>
+<?php include 'lib/session.php';?>
+<?php Session::checkSession();?>
         <div class="grid_10">
 		
             <div class="box round first grid">

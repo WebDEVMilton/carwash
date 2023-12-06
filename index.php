@@ -1,11 +1,19 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
-<?php 
- Session::init();
-?>
+
 
 <!DOCTYPE php>
+
+
+<?php 
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
+?>
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -122,13 +130,13 @@
 
                         ?>
                     <h4><span><a href="?action=logout">log out</a> or </span><a href="register.php">sign up</a></h4>
-                    <?php }?>
-                        <?php
+						<?php }?>
+						<?php
                         if(isset($_SESSION['login'])==false){
 
                         ?>
-                    <h4><span><a href="?action=logout">log in</a> or </span><a href="register.php">sign up</a></h4>
-                    <?php }?>
+                    <h4><span><a href="?action=login">log in</a> or </span><a href="register.php">sign up</a></h4>
+						<?php }?>
                 </div>
             </div>
         </div>
@@ -228,7 +236,7 @@
                             <!-- php code end  -->
 
                     <div class="product-maind">
-                        <a href="productcart.html"><img src="admin/<?php echo $result_rec_product['product_image']?>" alt=""></a>
+                        <a href="productcart.php?productid=<?php echo $result_rec_product['id']?>"><img src="admin/<?php echo $result_rec_product['product_image']?>" alt=""></a>
                         <h4><?php echo $result_rec_product['product_name']?></h4>
                         <span><?php echo $result_rec_product['current_price']?></span>
                     </div>
@@ -262,7 +270,7 @@
 
 
                     <div class="product-maind">
-                       <a href="productcart.html"><img src="admin/<?php echo $result_recc_product['product_image']?>" alt=""></a> 
+                       <a href="productcart.php?productid=<?php echo $result_rec_product['id']?>"><img src="admin/<?php echo $result_recc_product['product_image']?>" alt=""></a> 
                         <h4><?php echo $result_recc_product['product_name']?></h4>
                         <span><?php echo $result_recc_product['current_price']?></span>
                     </div>
@@ -443,7 +451,7 @@
                             </table>
                             </div>
                         <div class="selling-btn mt-15">
-                             <a href="carcart.html" class="btn-bannar">Add to cart</a>
+                             <a href="carcart.php" class="btn-bannar">Add to cart</a>
                         </div>
                          
                         </div>

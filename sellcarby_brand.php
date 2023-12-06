@@ -1,11 +1,16 @@
-<?php include 'lib/database.php';?>
-<?php include 'session.php'; ?>
-<?php $db=new database(); ?>
+<!DOCTYPE php>
 <?php 
- Session::init();
+include 'lib/session.php';
+Session:: init();
+
+?>
+ <?php include 'lib/database.php';?>
+ <?php $db=new Database() ;?>
+<?php 
+ //Session::checkSession();
 ?>
 
-<!DOCTYPE php>
+
 <php lang="en">
 <head>
     <meta charset="UTF-8">
@@ -127,7 +132,7 @@
                         if(isset($_SESSION['login'])==false){
 
                         ?>
-                    <h4><span><a href="?action=logout">log in</a> or </span><a href="register.php">sign up</a></h4>
+                    <h4><span><a href="login.php">log in</a> or </span><a href="register.php">sign up</a></h4>
                     <?php }?>
                 </div>
             </div>
