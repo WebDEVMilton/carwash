@@ -102,8 +102,8 @@
                             <td><?php echo $booking_result['customer_email']?></td>
                             <td><?php echo $booking_result['phone_number']?></td>
                             <td><?php echo $booking_result['address']?></td>
-                            <td><?php echo $booking_result['pakage_name']?></td>
-                            <td><?php echo $booking_result['appoinment_time']?></td>
+                            <td><?php echo $booking_result['package_name']?></td>
+                            <td><?php echo $booking_result['appointment_time']?></td>
                             
 							
                            

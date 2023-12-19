@@ -4,6 +4,7 @@
  <?php $db=new Database() ;?>
 <?php 
  //Session::checkSession();
+ ob_start()
 ?>
 
 <php lang="en">

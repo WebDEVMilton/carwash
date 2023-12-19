@@ -158,7 +158,7 @@ Session:: init();
                 <?php
 
                     if(isset($_POST['submit'])){
-
+                        $customer_id=$_SESSION['id'];
                         $name=$_SESSION['name'];
                         $phone=$_SESSION['phone'];
                         $city=$_SESSION['city'];
@@ -171,8 +171,8 @@ Session:: init();
 
                         if($name||$phone||$city||$address||$product_image||$product_name||$product_price){
 
-                            $select_querry="insert into orders(product_id ,customer_name,product_img,product_name,product_price,phone_num,city,address)
-                            values('$product_id','$name','0','$product_name','$product_price','$phone','$city','$address')";
+                            $select_querry="insert into orders(product_id,customer_id,customer_name,product_img,product_name,product_price,phone_num,city,address)
+                            values('$product_id','$customer_id','$name','0','$product_name','$product_price','$phone','$city','$address')";
 
                             $read=$db->insert($select_querry);
                             if($read){

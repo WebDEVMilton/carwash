@@ -205,25 +205,26 @@ Session:: init();
                     $customer_name=$_POST['customer_name'];
                     $customer_email=$_POST['customer_email'];
                     $phone_number=$_POST['phone_number'];
-                    $pakage_name=$_POST['pakage_name'];
+                    $package_name=$_POST['package_name'];
                     $address=$_POST['address'];
-                    $appoinment_time=$_POST['appoinment_time'];
+                    $appointment_time=$_POST['appointment_time'];
+                    $customersId =$_SESSION['id'];
 
-                    if(empty($customer_name)||empty($customer_email)||empty($phone_number)||empty($pakage_name)||empty($appoinment_time)){
+                    if(empty($customer_name)||empty($customer_email)||empty($phone_number)||empty($package_name)||empty($appointment_time)){
                         echo  "<script>alert('please insert all data')</script>";
 
                     }
                     
                     else{
-                        $selectmain="SELECT * from booking where appoinment_time='$appoinment_time' limit 1";
+                        $selectmain="SELECT * from booking where  appointment_time='$appointment_time' limit 1";
                         $readmain=$db->select($selectmain);
 
                         if($readmain !=false){
                             echo"<script>alert('Please select the different time')</script>";
                         }else{
 
-                            $insert_querry="INSERT into booking(customer_name,customer_email,phone_number,address,pakage_name,appoinment_time,status) 
-                            values('$customer_name','$customer_email','$phone_number','$address','$pakage_name','$appoinment_time',0)
+                            $insert_querry="INSERT into booking(customersId,customer_name,customer_email,phone_number,address,package_name,appointment_time,status) 
+                            values('$customersId','$customer_name','$customer_email','$phone_number','$address','$package_name','$appointment_time',0)
                             ";
                             $read=$db->insert($insert_querry);
     
@@ -281,12 +282,12 @@ Session:: init();
                         
                         ?>
 
-                        Enter Pakage Name:<input type="text" placeholder="" name="pakage_name"  value="<?php echo  $resultc['pakage_name'];?>">
+                        Enter Pakage Name:<input type="text" placeholder="" name="package_name"  value="<?php echo  $resultc['pakage_name'];?>">
                            <?php }} ?>
                          
                            <!-- <input style="margin-top: 10px;" type="datetime-local" id="meeting-time" name="appoinment_time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00"/> -->
  
-                        <input type="datetime-local" name="appoinment_time"> 
+                        <input type="datetime-local" name="appointment_time"> 
 
                         <input type="submit" value="Book Order" class="signup-btn" name="submit">
                         

@@ -3,13 +3,13 @@
 
 <?php 
 include 'lib/session.php';
-Session:: init();
+// Session:: init();
 
 ?>
  <?php include 'lib/database.php';?>
  <?php $db=new Database() ;?>
 <?php 
- //Session::checkSession();
+ Session::checkSession();
 ?>
 
 <php lang="en">
@@ -218,9 +218,13 @@ Session:: init();
                 
                 <!-- select booking  -->
                 <?php
-                    $bookingselect="SELECT * from booking 
+                    $id=$_SESSION['id'];
+                    $bookingselect="SELECT booking.*,customers.id,customers.name
+                    FROM booking
+                    INNER JOIN customers ON customers.id = booking.customersId
                     
-                    order by id desc limit 3";
+                    where booking.customersId='$id' order by booking.id
+                    ";
 
                     $read=$db->select($bookingselect);
                     if($read){
@@ -233,15 +237,15 @@ Session:: init();
                     <div class="col-xxl-12 col-sm-12 ">
 
                         <div class="cart-option">
-                        <div class="cart-details d-flex justify-content-space-between align-item-center">
+                        <div class="cart-details d-flex justify-content-space-between align-item-center" style="padding: 10px 11px 15px 12px;">
                             <!-- <div class="product-img">
                                 <img src="assets/img/product/MINI-PNEUMATIC-TOOL-KIT.jpg" alt="">
                             </div> -->
                             <div class="product-name">
-                                <h5><?php echo $result_booking['pakage_name']?></h5>
+                                <h5><?php echo $result_booking['package_name']?></h5>
                             </div>
                             <div class="product-price">
-                                <h6><?php echo $result_booking['appoinment_time']?></h6>
+                                <h6><?php echo $result_booking['appointment_time']?></h6>
                             </div>
                             <div class="product-btn d-inline-flex justify-content-space-around">
                             <?php
@@ -269,11 +273,14 @@ Session:: init();
             <!-- booking end  -->
                 <h4 style=" text-align:center; color:blue;">Product</h4>
                     <?php 
-                        $select_order = "SELECT orders.*, product.product_image 
+                        $order_id=$_SESSION['id'];
+
+                        $select_order = "SELECT orders.*, product.product_image
                             from orders
                             inner join product on
                             product.id=orders.product_id
-                            order by orders.customer_name";
+                            where orders.customer_id='$order_id'
+                            order by orders.id";
                         $readorder=$db->select($select_order);
 
                       if($readorder){
@@ -289,7 +296,7 @@ Session:: init();
                         <div class="cart-option">
                         <div class="cart-details d-flex justify-content-space-between align-item-center">
                             <div class="product-img">
-                                <img width="70" height="50" src="<?php echo $resultpro['product_image']?>" alt="">
+                                <img width="70" height="50" src="admin/<?php echo $resultpro['product_image']?>" alt="">
                             </div>
                             <div class="product-name">
                                 <h5><?php echo $resultpro['product_name'] ?></h5>

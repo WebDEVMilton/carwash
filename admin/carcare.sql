@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 04:32 PM
+-- Generation Time: Dec 14, 2023 at 04:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -71,23 +71,24 @@ INSERT INTO `bannar` (`id`, `bannar_image`, `bannar_header`, `bannar_title`) VAL
 
 CREATE TABLE `booking` (
   `id` int(11) NOT NULL,
+  `customersId` int(11) DEFAULT NULL,
   `customer_name` varchar(255) DEFAULT NULL,
   `customer_email` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `pakage_name` varchar(255) DEFAULT NULL,
-  `appoinment_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` int(11) NOT NULL
+  `package_name` varchar(255) DEFAULT NULL,
+  `appointment_time` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `customer_name`, `customer_email`, `phone_number`, `address`, `pakage_name`, `appoinment_time`, `status`) VALUES
-(1, 'Sakib', 'Sakibbd39@gmail.com', '4837382923455', '', 'combo pakage', '2023-11-29 13:22:42', 1),
-(16, 'Sakib', 'Sakibbd39@gmail.com', '4837382923455', 'rodrigo', 'combo pakage', '2024-12-21 03:20:00', 0),
-(17, 'Sakib', 'Sakibbd39@gmail.com', '4837382923455', 'rodrigo', 'combo pakage', '2023-11-29 13:18:53', 1);
+INSERT INTO `booking` (`id`, `customersId`, `customer_name`, `customer_email`, `phone_number`, `address`, `package_name`, `appointment_time`, `status`) VALUES
+(1, 2, 'nabil', 'nabil45@gmail.com', '09198849947', 'dhakA', 'combo pakage', '2024-01-15 04:28:00', 0),
+(2, 3, 'nneep bhai', 'hello@gmail.com', '455456565656', 'grio', 'combo pakage', '2024-01-15 01:55:00', 1),
+(3, 4, 'hi', 'hi5@gmail.com', '46466645646', 'fghf', 'combo pakage', '2024-01-15 10:18:00', 1);
 
 -- --------------------------------------------------------
 
@@ -166,7 +167,10 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `password`, `orders_id`, `servicepackage_id`, `phone`, `address`, `city`, `nid`) VALUES
-(1, 'Sakib', 'Sakibbd39@gmail.com', '12345678', NULL, NULL, '4837382923455', 'rodrigo', 'comilla', '433434355');
+(1, 'Sakib', 'Sakibbd39@gmail.com', '12345678', NULL, NULL, '4837382923455', 'rodrigo', 'comilla', '433434355'),
+(2, 'nabil', 'nabil45@gmail.com', '12345678', NULL, NULL, '09198849947', 'dhakA', 'ffgk', '45455'),
+(3, 'nneep bhai', 'hello@gmail.com', '12345678', NULL, NULL, '455456565656', 'grio', 'ghi', '5465'),
+(4, 'hi', 'hi5@gmail.com', '12345678', NULL, NULL, '46466645646', 'fghf', 'hfh', '566');
 
 -- --------------------------------------------------------
 
@@ -277,14 +281,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `service_id`, `servicepackage_id`, `product_id`, `sellcar_id`, `customer_id`, `customer_name`, `product_img`, `product_name`, `product_price`, `phone_num`, `city`, `address`) VALUES
-(3, NULL, NULL, NULL, NULL, NULL, 'Sakib', '0', 'yohooi', '235', '4837382923455', 'comilla', 'rodrigo'),
-(11, NULL, NULL, NULL, NULL, NULL, 'Sakib', '0', 'yohooi', '235', '4837382923455', 'comilla', 'rodrigo'),
-(15, NULL, NULL, 30, NULL, NULL, 'Sakib', '0', 'yohooi', '235', '4837382923455', 'comilla', 'rodrigo'),
-(20, NULL, NULL, 27, NULL, NULL, 'Sakib', '0', 'Sicleoi', '3400', '4837382923455', 'comilla', 'rodrigo'),
-(21, NULL, NULL, 27, NULL, NULL, 'Sakib', '0', 'Sicleoi', '3400', '4837382923455', 'comilla', 'rodrigo'),
-(22, NULL, NULL, 27, NULL, NULL, 'Sakib', '0', 'Sicleoi', '3400', '4837382923455', 'comilla', 'rodrigo'),
-(25, NULL, NULL, 26, NULL, NULL, 'Sakib', '0', 'nikel', '20', '4837382923455', 'comilla', 'rodrigo'),
-(26, NULL, NULL, 27, NULL, NULL, 'Sakib', '0', 'Sicleoi', '3400', '4837382923455', 'comilla', 'rodrigo');
+(29, NULL, NULL, 29, NULL, 2, 'nabil', '0', 'Ae195', '3456', '09198849947', 'ffgk', 'dhakA'),
+(30, NULL, NULL, 29, NULL, 2, 'nabil', '0', 'Ae195', '3456', '09198849947', 'ffgk', 'dhakA'),
+(31, NULL, NULL, 30, NULL, 4, 'hi', '0', 'yohooi', '235', '46466645646', 'hfh', 'fghf');
 
 -- --------------------------------------------------------
 
@@ -590,7 +589,8 @@ ALTER TABLE `bannar`
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customersId` (`customersId`);
 
 --
 -- Indexes for table `carbrand`
@@ -725,7 +725,7 @@ ALTER TABLE `bannar`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `carbrand`
@@ -743,7 +743,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employe`
@@ -767,7 +767,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `owner`
@@ -832,6 +832,12 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`customersId`) REFERENCES `customers` (`id`);
 
 --
 -- Constraints for table `customers`
